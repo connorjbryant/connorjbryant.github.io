@@ -1,0 +1,66 @@
+html{
+    scroll-behavior:smooth;
+  }
+  body{
+    margin:0;
+    background:#F9F5EB;
+  }
+  nav{
+    background:#1C3879;
+    width:2vw;
+    height:100vh;
+    position:fixed;
+    
+  }
+  nav>a{
+    color:white;
+    background:green;
+  } 
+  main{
+    position:absolute;
+    top:0;
+    right:0;
+    width:85vw;
+  }
+  h1{
+    font-family:Helvetica;
+    font-size:80pt;
+    margin: 0;
+  }
+  h2{
+    font-family:Helvetica;
+    font-size:40pt;
+    margin: 0;
+  }
+  p{
+    position:absolute;
+    font-family:Helvetica;
+    font-size:25pt;
+  }
+  button{
+    width:10vw;
+    position:absolute;
+    background:#607EAA;
+    margin-bottom:20px;
+    top:10cm;
+    left:1vw;
+  }
+  button a{
+    color:#F9F5EB;
+    font:helvetica;
+    text-decoration:none;
+    Font-size:20pt;
+  }
+  
+  #one{
+    top:2cm;
+    left:1cm;
+  }
+  #three{
+    top:4cm;
+    left:1cm;
+  }
+  #four{
+    top:9cm;
+    left:1cm;
+  }
