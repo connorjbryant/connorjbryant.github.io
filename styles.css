@@ -65,7 +65,7 @@
   .menu li {
     padding: 8px;
     margin-bottom: 7px;
-    background-color: #b2c2bf;
+    background-color: #91a1bb;
     color: #ffffff;
     font-size: 30px;
     text-decoration: none;
@@ -73,7 +73,7 @@
   }
   
   .menu li:hover {
-    background-color: #a0adab;
+    background-color: #a7b9d6;
   }
   
   .aside {
