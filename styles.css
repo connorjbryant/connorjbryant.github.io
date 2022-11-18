@@ -1,228 +1,87 @@
-* {
-    box-sizing: border-box;
-  }
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,800);
 
-  body {
-    margin: 0;
-    height: 100%;
-    /* background-color: #F9F5EB; */
-  }
+body {
+  background: lightgoldenrodyellow;
+  font-family: 'Open Sans';
+  font-size: 1.3em;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+#nav {
+  background: url("http://thumb1.shutterstock.com/display_pic_with_logo/1487123/134611310/stock-vector-colorful-geometric-background-with-triangles-vector-eps-134611310.jpg");
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#nav ul{
+  list-style: none;
+}
+#nav li {
+  display: inline-block;
+  padding: 10px;
+}
+#nav li:hover {
+  background: aquamarine;
+}
+#nav li:hover a{
+  color: black;
+}
+.content {
+  padding-top: 90px;
+}
+.anchor {
+  display: block; /*this is important!*/
+}
+.title {
+  position: relative;
+  display: block;
+  top: -50px;
+  padding: 20px 0;
+  font-size: 1.9em;
+}
+.title:before{
+  font-size: 1.5em;
+  content: "\005B";
+}
+.title:after{
+  font-size: 1.5em;
+  content: "\005D";
+}
+.page-divider {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 500px;
+  height: 100%; 
+  overflow: hidden;
+  background-size: cover;
+}
+.pgd1{background-image: url("https://www.connorjbryant.com/wp-content/uploads/2022/07/Connor-Bryant-5-22.jpg");}
+.pgd2{background-image: url("https://www.connorjbryant.com/wp-content/uploads/2022/11/Programming_code-scaled-e1668752460371.jpg");}
+.page {
+  min-width: 200px;
+  padding: 50px 100px;
+}
+#page1 {background: LightBlue;}
+#page2 {background: lightgrey;}
+#page3 {background: SlateGray;}
 
-  .backgroundLB {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #91a1bb;
-    /* other attributes to position content inside */
-  }
-  
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  
-  [class*="col-"] {
-    float: left;
-    padding: 15px;
-  }
-  
-  html {
-    font-family: "Lucida Sans", sans-serif;
-    scroll-behavior: smooth;
-  }
-
-  h1 {
-    Font-size:48pt;
-    padding: 0;
-    margin: 0;
-  }
-
-  h2 {
-    Font-size:26pt;
-    padding: 0;
-    margin: 0;
-  }
-
-  a {
-    text-decoration: none;
-  }
-  
-  .header {
-    background-color: #1C3879;
-    color: white;
-    padding: 15px;
-  }
-  
-  .menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .menu li {
-    padding: 8px;
-    margin-bottom: 7px;
-    background-color: #91a1bb;
-    color: #ffffff;
-    font-size: 30px;
-    text-decoration: none;
-    position: relative;
-  }
-  
-  .menu li:hover {
-    background-color: #a7b9d6;
-  }
-  
-  .aside {
-    background-color: #F9F5EB;
-    padding: 15px;
-    color: #ffffff;
-    text-align: center;
-    font-size: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  }
-  
-  .footer {
-    /* background-color: #91a1bb; */
-    color: #ffffff;
-    /* text-align: center;
-    font-size: 12px;
-    padding: 15px; */
-  }
-  
-  /* For mobile phones: */
-  [class*="col-"] {
-    width: 100%;
-  }
-  
-  @media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 12%;}
-    .col-3 {width: 30%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
-    .col-13 {width: 1%;}
-  }
-
-  .sideColor {
-    background:#1C3879;
-    width:2vw;
-    height:100vh;
-    position:fixed;
-    padding: none;
-    z-index: -1;
-  }
-
-  button{
-    width:10vw;
-    position:absolute;
-    background:#E3481A;
-    margin-bottom:20px;
-    top:10cm;
-    left:1vw;
-    
-  
-  }
-  button a{
-    color:#FAEE35;
-    font:helvetica;
-    text-decoration:non;
-    Font-size:20pt;
-  }
-  
-  #one{
-    top:2cm;
-    left:1cm;
-  }
-  #three{
-    top:4cm;
-    left:1cm;
-  }
-  #four{
-    top:9cm;
-    left:1cm;
-  }
-  #five{
-    top:11cm;
-    left:1cm;
-  }
-  #six{
-    top:16cm;
-    left:1cm;
-  }
-  #seven{
-    top:18cm;
-    left:1cm;
-  }
-  #eigth{
-    top:40cm;
-    left:1cm;
-  }
-  
-  #welcome{
-    position:absolute;
-    left:20.2cm;
-    top:-2cm;
-    width:15cm;
-  }
-  #scrolldown{
-    position:absolute;
-    right:5cm;
-    top:36cm;
-    width:10cm;
-  }
-    #thanks{
-      position:absolute;
-      top:110cm;
-      left:20.2cm;
-  }
-    
-  
-  #titleimage{
-    position:absolute;
-    top:15cm;
-    left:20.2cm;
-  }
-  #titleimagearchitecture{
-    position:absolute;
-    top:65cm;
-    left:20.2cm;
-    
-  }
-  
-  #intreduction{
-    position:absolute;
-    top:19.5cm;
-    left:0.2cm;
-   
-    
-  }
-  #firstparagraph{
-    position:absolute;
-    top:25cm;
-  }
-  #architecture{
-    position:absolute;
-    top:60cm;
-  }
-  #secondparagraph{
-    position:absolute;
-    top:70cm;
-    
-  }
-
-  #project-work {
-    margin-top: 10%;
-    padding-bottom: 25%;
-  }
+footer {
+  min-height: 200px;
+  padding: 100px;
+}
+footer p {
+  -webkit-column-count: 2;
+  -webkit-column-gap: 40px;
+  -moz-column-count: 2;
+  -moz-column-gap: 40px;
+  -o-column-count: 2;
+  -o-column-gap: 40px;
+  column-count: 2;
+  column-gap: 40px;
+}
