@@ -1,350 +1,646 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="icon" type="image/x-icon" href="https://www.connorjbryant.com/wp-content/uploads/2022/11/bolt.png">
-<title>Connor Bryant - Web Designer & Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connor Bryant - Web Designer & Developer portfolio showcasing projects and skills">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="https://www.connorjbryant.com/wp-content/uploads/2022/11/bolt.png">
+    <title>Connor Bryant - Web Designer & Developer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+        :root {
+            --primary-color: #497174;
+            --secondary-color: #EB6440;
+            --accent-color: #f76b44;
+            --light-bg: #EFF5F5;
+            --dark-text: #2C3E50;
+            --light-text: #FFFFFF;
+            --nav-hover: #f76b44;
+            --btn-hover: #E3481A;
+            --section-bg: #F1F8FE;
+            --project-bg: #FFFFFF;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            font-size: 1rem; /* Changed from 1.3em for better mobile scaling */
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Changed from 48pt for better responsive scaling */
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.8rem; /* Changed from 26pt for better responsive scaling */
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            line-height: 1.4;
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 2rem 0;
+        }
+
+        .header h1, 
+        .header h2, 
+        .header h3, 
+        .header p {
+            color: var(--light-text);
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-menu {
+            flex: 1 0 100%;
+            order: 3; /* Changed order for mobile */
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .nav-menu li {
+            background-color: var(--secondary-color);
+            padding: 0.8rem 1rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1 0 calc(50% - 0.5rem); /* Two items per row on mobile */
+        }
+
+        .nav-menu li:hover {
+            background-color: var(--nav-hover);
+            transform: translateX(5px);
+        }
+
+        .nav-menu a {
+            color: var(--light-text);
+            font-size: 1rem;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .nav-menu a:hover {
+            color: var(--light-text);
+            text-decoration: none;
+        }
+
+        .profile-content {
+            flex: 1 1 100%;
+            order: 2; /* Changed order for mobile */
+        }
+
+        .profile-image {
+            flex: 0 0 150px;
+            order: 1; /* Changed order for mobile */
+            margin: 0 auto;
+        }
+
+        .profile-image img {
+            border-radius: 50%;
+            border: 4px solid var(--light-text);
+            box-shadow: var(--box-shadow);
+            max-width: 150px;
+            height: auto;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: var(--light-text);
+            font-size: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+            color: var(--light-text);
+            text-decoration: none;
+        }
+
+        /* Hero Background */
+        .hero-bg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Projects Section */
+        .section-title {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .section-title h1 {
+            color: var(--light-text);
+        }
+
+        .project {
+            background-color: var(--project-bg);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .project-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .project-header img {
+            margin: 0 auto;
+            max-height: 80px;
+            border-radius: var(--border-radius);
+        }
+
+        .project-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .project-column {
+            flex: 1 1 100%;
+        }
+
+        .project-media {
+            margin: 1rem 0;
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            overflow: hidden; /* Prevent content from overflowing */
+        }
+
+        .project-media img,
+        .project-media iframe {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .project-media iframe {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9; /* Maintain aspect ratio for iframes */
+        }
+
+        .skills-list {
+            list-style-position: inside;
+            padding-left: 0;
+            margin: 1rem 0;
+        }
+
+        .skills-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            margin-top: auto;
+        }
+
+        footer a {
+            color: var(--light-text);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .footer-text {
+            color: white;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--light-text);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn:hover {
+            background: var(--btn-hover);
+            transform: translateY(-2px);
+            color: var(--light-text);
+            text-decoration: none;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Improved contrast for text */
+        p, li {
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Iframe styling */
+        iframe {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            background: var(--light-bg);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 576px) {
+            .nav-menu li {
+                flex: 1 0 auto; /* Single row on tablets and up */
+            }
+            
+            .profile-image {
+                margin: 0;
+            }
+            
+            .social-links {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            
+            .nav-menu {
+                flex: 1 0 200px;
+                order: 1;
+            }
+            
+            .profile-content {
+                flex: 3 1 60%;
+                order: 2;
+            }
+            
+            .profile-image {
+                flex: 1 0 150px;
+                order: 3;
+            }
+            
+            .project-column {
+                flex: 1 1 calc(50% - 1rem);
+            }
+            
+            .project-header img {
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+
+        @media (min-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            body {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
 </head>
-<style>
-  @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,800);
-
-  body {
-    background-color: #EFF5F5;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  .bg
-  {
-    width: 100%;
-    z-index: 0;
-  }
-
-  * {
-  box-sizing: border-box;
-  }
-
-  body {
-    margin: 0;
-    height: 100%;
-    font-family: 'Open Sans';
-    font-size: 1.3em;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  
-  [class*="col-"] {
-    float: left;
-    padding: 15px;
-  }
-  
-  html {
-    font-family: 'Open Sans';
-    scroll-behavior: smooth;
-  }
-
-  h1 {
-    Font-size:48pt;
-    padding: 0;
-    margin: 0;
-    font-family: 'Open Sans';
-  }
-
-  h2 {
-    Font-size:26pt;
-    padding: 0;
-    margin: 0;
-    font-family: 'Open Sans';
-  }
-
-  a {
-    text-decoration: none;
-  }
-  
-  .header {
-    background-color: #1C3879;
-    color: white;
-    padding: 15px;
-  }
-  
-  .menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .menu li {
-    padding: 8px;
-    margin-bottom: 7px;
-    background-color: #EB6440;
-    color: #ffffff;
-    font-size: 30px;
-    text-decoration: none;
-    position: relative;
-    font-family: 'Open Sans';
-  }
-  
-  .menu li:hover {
-    background-color: #f76b44;
-  }
-  
-  /* For mobile phones: */
-  [class*="col-"] {
-    width: 100%;
-  }
-  
-  @media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 12%;}
-    .col-3 {width: 30%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
-    .col-13 {width: 1%;}
-  }
-
-  button {
-    width:10vw;
-    position:absolute;
-    background:#E3481A;
-    margin-bottom:20px;
-    top:10cm;
-    left:1vw;
-  }
-
-  button a {
-    color:#FAEE35;
-    font:helvetica;
-    text-decoration:none;
-    Font-size:20pt;
-  }
-
-</style>
 <body>
 
-<div style="background-color: #497174;" class="row">
-  <div class="col-3 menu">
-    <ul>
-        <br>
-        <a href="https://www.connorjbryant.com/wp-content/uploads/2023/01/Connor-Bryant-Resume.pdf"><li>Resume</li></a>
-        <a href="mailto:connorjamesbryant7@gmail.com"><li>Contact</li></a>
-    </ul>
-  </div>
-
-<div class="col-6">
-    <h1>Connor Bryant</h1>
-    <h2>Web Designer & Developer</h2>
-    <p style="color: white">Innovative developer interested in creating scalable web applications and working across the full stack. Experienced in WordPress and Adobe Dreamweaver. Able to adapt to new technologies and environments.</p>
-</div>
-
-<div class="col-2 right">
-    <img src="https://www.connorjbryant.com/wp-content/uploads/2020/12/circle-cropped-2.png" style="max-width: 100%" alt="pic of me">
-</div>
-
-<div class="col-13 right">
-    <a style="color: black" href="https://github.com/connorjbryant"><i class="fa fa-github" style="font-size:36px"></i></a>
-    <a style="color: black" href="https://www.linkedin.com/in/connor-j-bryant/"><i class="fa fa-linkedin" style="font-size:36px"></i></a>
-    <a style="color: black" href="https://twitter.com/c_gingey"><i class="fa fa-twitter-square" style="font-size:36px"></i></a>
-    <a style="color: black" href="https://www.instagram.com/c_gingey/"><i class="fa fa-instagram" style="font-size:36px"></i></a>
-    <a style="color: black" href="mailto:connorjamesbryant7@gmail.com"><i class="fa fa-envelope" style="font-size:36px"></i></a>
-</div>
-</div>
-
-<img class="bg" src="https://www.connorjbryant.com/wp-content/uploads/2022/11/shattered-island-e1668806477896.png" alt="">
-
-<div class="row">
-<div style="background-color: #e4dcc3fb" class="col-12">
-    <br>
-    <h1>Project Work</h1>
-    <br>
-</div>
-</div>
-
-<div class="row">
-    <!-- Indy Urban League -->
-    <div style="background-color: #D6E4E5" class="col-12">
-        <h2 style="color: black; text-align: left;">The Indianapolis Urban League Website</h3>
-            <img align="right" src="https://www.indplsul.org/wp-content/uploads/2018/03/iul-icon-red-250.png" width="300" alt="iul">
-            <p style="color: black; font-size:20px; text-align: left;">As a Web Designer I created content and updated information for the site.</p>
-            <p><b>Company:</b> <b><u style="color: #EB6440"><a style="color: #EB6440" href="https://hopetrainingacademy.org/tln-interactive-education-center-1/">Indianapolis Urban League</a></u></b></p>
-            <p><b>Skills I Used:</b></p>
+<!-- Header Section -->
+<header class="header">
+    <div class="container header-content">
+        <nav class="nav-menu">
             <ul>
-                <li>Content Management Tools: WordPress</li>
-                <li>Web Design</li>
-                <li>Writing content for the website</li>
-                <li>Ability to write custom code to the site</li>
-                <li>WPBakery Page Builder</li>
+                <li><a href="https://www.connorjbryant.com/wp-content/uploads/2023/01/Connor-Bryant-Resume.pdf">Resume</a></li>
+                <li><a href="mailto:connorjamesbryant7@gmail.com">Contact</a></li>
             </ul>
-    </div>
-    </div>
-    
-    <div class="col-6">
-        <p style="color: black; font-size:20px;"><b>Front-end web graphics is my specialty</b></p>
-        <p>I liked to use CodePen to make interesting graphics for the IUL website.</p>
-        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="mdXePZr" data-user="connorjbryant" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-            <span>See the Pen <a href="https://codepen.io/connorjbryant/pen/mdXePZr">
-            Revolver Gallery</a> by Connor Bryant (<a href="https://codepen.io/connorjbryant">@connorjbryant</a>)
-            on <a href="https://codepen.io">CodePen</a>.</span>
-        </p>
-          <p>Click <b><u style="color: #EB6440"><a style="color: #EB6440" href="https://www.indplsul.org/equity-summit-myths-realities-an-action-session/2022-no-menthol-sunday/">here</a></u></b> to view this on the website.</p>
-          <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-    </div>
-    
-    <div class="col-6">
-        <p style="color: #EFF5F5; font-size:20px;"><b>Front-end web graphics is my specialty</b></p>
-        <p style="color: #EFF5F5; font-size:20px;">I like to use CodePen to make fun little graphics for the IUL website.</p>
-        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="QWQjNxq" data-user="connorjbryant" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-            <span>See the Pen <a href="https://codepen.io/connorjbryant/pen/QWQjNxq">
-            NoSmoking</a> by Connor Bryant (<a href="https://codepen.io/connorjbryant">@connorjbryant</a>)
-            on <a href="https://codepen.io">CodePen</a>.</span>
-        </p>
-          <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-          <p>Click <b><u style="color: #EB6440"><a style="color: #EB6440" href="https://www.indplsul.org/equity-summit-myths-realities-an-action-session/2022-no-menthol-sunday/">here</a></u></b> to view this on the website.</p>
-          <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-    </div>
+        </nav>
 
-    <div class="col-7">
-        <p style="color: black; font-size:20px;"><b>Created a web portal for a college readiness program (Project Ready)</b></p>
-        <p>One of my responsibilties was making a secure portal for students to apply for college scholarships. To gain access to the scholarship forms a password was required which would allow a student to complete the application process. The forms are categorized by school type and are sent to the corresponding schools Project Ready Coordinator. The Contact Form 7 plug-in was used to collect data.</p>
-        <img src="https://www.connorjbryant.com/wp-content/uploads/2022/11/project-ready-forms.gif" width="500" alt="">
-    </div>
+        <div class="profile-content">
+            <h1>Connor Bryant</h1>
+            <h2>Web Designer & Developer</h2>
+            <p>Innovative developer interested in creating scalable web applications and working across the full stack. Experienced in WordPress and Adobe Dreamweaver. Able to adapt to new technologies and environments.</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/connorjbryant"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/connor-j-bryant/"><i class="fa fa-linkedin"></i></a>
+                <a href="https://twitter.com/c_gingey"><i class="fa fa-twitter-square"></i></a>
+                <a href="https://www.instagram.com/c_gingey/"><i class="fa fa-instagram"></i></a>
+                <a href="mailto:connorjamesbryant7@gmail.com"><i class="fa fa-envelope"></i></a>
+            </div>
+        </div>
 
-    <div class="col-4">
-        <p style="color: black; font-size:20px;"><b>Added a front page revolver to showcase important information</b></p>
-        <p>One of my contributions was adding this rotating revolver that shows upcoming programs or events on the front page. This feature has increased traffic to the website because it allows users to access what they need very quickly.</p>
-        <img src="https://www.connorjbryant.com/wp-content/uploads/2022/11/front-page-revolver.gif" width="500" alt="">
+        <div class="profile-image">
+            <img src="https://www.connorjbryant.com/wp-content/uploads/2020/12/circle-cropped-2.png" alt="Connor Bryant">
+        </div>
     </div>
-    </div>
-</div>
+</header>
 
-<div class="row">
-    <!-- TDULTRA -->
-    <div style="background-color: #D6E4E5" class="col-12">
-        <h2 style="color: black; text-align: left;">TDULTRA: A web conferencing application</h3>
-          <img align="right" src="https://www.connorjbryant.com/wp-content/uploads/2022/07/logo.png" width="385" alt="">
-        <p style="color: black; font-size:20px; text-align: left;">TDULTRA is a platform like Skype or Zoom that connects students with tutors.</p>
-        <p><b>Company:</b> <b><u style="color: #EB6440"><a style="color: #EB6440" href="https://www.tutordudes.com/">TutorDudes</a></u></b></p>
-        <p><b>Project:</b> The <b><u style="color: #EB6440"><a style="color: #EB6440" href="http://tdultra.com/">TDULTRA</a></u></b> Website</p>
-        <p><b>Skills I Used:</b></p>
-        <ul>
+<!-- Hero Background -->
+<img class="hero-bg" src="https://www.connorjbryant.com/wp-content/uploads/2022/11/shattered-island-e1668806477896.png" alt="Decorative background">
+
+<!-- Projects Section -->
+<section class="section-title">
+    <div class="container">
+        <h1>Project Work</h1>
+    </div>
+</section>
+
+<div class="container">
+    <!-- Indianapolis Urban League Project -->
+    <article class="project fade-in">
+        <div class="project-header">
+            <h2>The Indianapolis Urban League Website</h2>
+            <img src="https://www.indplsul.org/wp-content/uploads/2018/03/iul-icon-red-250.png" alt="Indianapolis Urban League Logo">
+        </div>
+        
+        <p>As a Web Designer I created content and updated information for the site.</p>
+        <p><strong>Company:</strong> <a href="https://hopetrainingacademy.org/tln-interactive-education-center-1/">Indianapolis Urban League</a></p>
+        
+        <p><strong>Skills I Used:</strong></p>
+        <ul class="skills-list">
+            <li>Content Management Tools: WordPress</li>
+            <li>Web Design</li>
+            <li>Writing content for the website</li>
+            <li>Ability to write custom code to the site</li>
+            <li>WPBakery Page Builder</li>
+        </ul>
+
+        <div class="project-content">
+            <div class="project-column">
+                <h3>Front-end web graphics is my specialty</h3>
+                <p>I liked to use CodePen to make interesting graphics for the IUL website.</p>
+                <div class="project-media">
+                    <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="mdXePZr" data-user="connorjbryant">
+                        <span>See the Pen <a href="https://codepen.io/connorjbryant/pen/mdXePZr">Revolver Gallery</a> by Connor Bryant (<a href="https://codepen.io/connorjbryant">@connorjbryant</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+                    </p>
+                </div>
+                <p>Click <a href="https://www.indplsul.org/equity-summit-myths-realities-an-action-session/2022-no-menthol-sunday/">here</a> to view this on the website.</p>
+            </div>
+
+            <div class="project-column">
+                <h3>Front-end web graphics is my specialty</h3>
+                <p>I like to use CodePen to make fun little graphics for the IUL website.</p>
+                <div class="project-media">
+                    <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="QWQjNxq" data-user="connorjbryant">
+                        <span>See the Pen <a href="https://codepen.io/connorjbryant/pen/QWQjNxq">NoSmoking</a> by Connor Bryant (<a href="https://codepen.io/connorjbryant">@connorjbryant</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+                    </p>
+                </div>
+                <p>Click <a href="https://www.indplsul.org/equity-summit-myths-realities-an-action-session/2022-no-menthol-sunday/">here</a> to view this on the website.</p>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <div class="project-column">
+                <h3>Created a web portal for a college readiness program (Project Ready)</h3>
+                <p>One of my responsibilties was making a secure portal for students to apply for college scholarships. To gain access to the scholarship forms a password was required which would allow a student to complete the application process. The forms are categorized by school type and are sent to the corresponding schools Project Ready Coordinator. The Contact Form 7 plug-in was used to collect data.</p>
+                <div class="project-media">
+                    <img src="https://www.connorjbryant.com/wp-content/uploads/2022/11/project-ready-forms.gif" alt="Project Ready Forms GIF">
+                </div>
+            </div>
+
+            <div class="project-column">
+                <h3>Added a front page revolver to showcase important information</h3>
+                <p>One of my contributions was adding this rotating revolver that shows upcoming programs or events on the front page. This feature has increased traffic to the website because it allows users to access what they need very quickly.</p>
+                <div class="project-media">
+                    <img src="https://www.connorjbryant.com/wp-content/uploads/2022/11/front-page-revolver.gif" alt="Front Page Revolver GIF">
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- TDULTRA Project -->
+    <article class="project fade-in">
+        <div class="project-header">
+            <h2>TDULTRA: A web conferencing application</h2>
+            <img src="https://www.connorjbryant.com/wp-content/uploads/2022/07/logo.png" alt="TDULTRA Logo">
+        </div>
+        
+        <p>TDULTRA is a platform like Skype or Zoom that connects students with tutors.</p>
+        <p><strong>Company:</strong> <a href="https://www.tutordudes.com/">TutorDudes</a></p>
+        <p><strong>Project:</strong> The <a href="http://tdultra.com/">TDULTRA</a> Website</p>
+        
+        <p><strong>Skills I Used:</strong></p>
+        <ul class="skills-list">
             <li>Website Design/Development</li>
             <li>Front and Back-end Coding</li>
         </ul>
-    </div>
-    
-    <div class="col-7">
-        <p style="color: black; font-size:20px; text-align: left;">The purpose of this project was to continue development on the TDULTRA website to improve usability and profitability. One of my main roles on this project as an intern was to build the technical infrastructure for the back-end of the site since the original prototype lacked a way to track users signing up for different services and lacked file-sharing capabilities for the tutors.</p>
-    </div>
-    </div>
 
-    <div class="col-4">
-        <p style="color: black; font-size:20px;">This is how the website initially looked.</p>
-        <iframe src="https://drive.google.com/file/d/1lsLrCrIVfdvs1uoKya-4cPEF0Yik6ftE/preview" width="560" height="315" allow="autoplay"></iframe>
-        <p style="color: black; font-size:20px;"><b>Initial Concept:</b> I worked with a team of two other interns on a three month project to continue development on this virtual meeting platform for learning and interaction.</p>
-        <p style="color: black; font-size:20px;"><b>Technology Used:</b> To complete this project my team and I used HTML5, CSS3, JavaScript, jQuery, and Node.js. We also used Google Firebase for database services and Paddle Payment for B2B transactions.</p>
-        <p style="color: black; font-size:20px;"><b>What was added:</b> A pricing page was developed that uses Paddle payment for transactions, web pages were added to access the WebRTC portion of the website, and access pages were created for the file sharing part of the website.</p>
-    </div>
+        <div class="project-content">
+            <div class="project-column">
+                <p>The purpose of this project was to continue development on the TDULTRA website to improve usability and profitability. One of my main roles on this project as an intern was to build the technical infrastructure for the back-end of the site since the original prototype lacked a way to track users signing up for different services and lacked file-sharing capabilities for the tutors.</p>
+                
+                <h3>This is how the website initially looked.</h3>
+                <div class="project-media">
+                    <iframe src="https://drive.google.com/file/d/1lsLrCrIVfdvs1uoKya-4cPEF0Yik6ftE/preview" allow="autoplay"></iframe>
+                </div>
+                
+                <p><strong>Initial Concept:</strong> I worked with a team of two other interns on a three month project to continue development on this virtual meeting platform for learning and interaction.</p>
+                <p><strong>Technology Used:</strong> To complete this project my team and I used HTML5, CSS3, JavaScript, jQuery, and Node.js. We also used Google Firebase for database services and Paddle Payment for B2B transactions.</p>
+                <p><strong>What was added:</strong> A pricing page was developed that uses Paddle payment for transactions, web pages were added to access the WebRTC portion of the website, and access pages were created for the file sharing part of the website.</p>
+            </div>
 
-    <div class="col-3"></div>
+            <div class="project-column">
+                <h3>The website after three months of development.</h3>
+                <div class="project-media">
+                    <iframe src="https://drive.google.com/file/d/1D7nZV9THbeUwIeZR4bT0bCZVxifopid2/preview" allow="autoplay"></iframe>
+                </div>
+                
+                <p><strong>How It Works:</strong> TDULTRA is a WebRTC (Web Real-Time Communications) application that enables real-time voice, text and video communications capabilities between web browsers and devices. The front end of the website uses HTML and CSS while the back end uses JavaScript (specifically Node.js) as well as Google Firebase. TDULTRA also has a file sharing service called TDCLOUD that allows tutors to upload media to their own personal account.</p>
+            </div>
+        </div>
+    </article>
 
-    <div class="col-3">
-        <p style="color: black; font-size:20px;">The website after three months of development.</p>
-        <iframe src="https://drive.google.com/file/d/1D7nZV9THbeUwIeZR4bT0bCZVxifopid2/preview" width="560" height="315" allow="autoplay"></iframe>
-        <p style="color: black; font-size:20px;"><b>How It Works:</b> TDULTRA is a WebRTC (Web Real-Time Communications) application that enables real-time voice, text and video communications capabilities between web browsers and devices. The front end of the website uses HTML and CSS while the back end uses JavaScript (specifically Node.js) as well as Google Firebase. TDULTRA also has a file sharing service called TDCLOUD that allows tutors to upload media to their own personal account.</p>
-    </div>
-</div>
-
-<div class="row">
-<!-- Video Game Palooza -->
-<div style="background-color: #D6E4E5" class="col-12">
-    <h2 style="color: black; text-align: left;">Video Game Palooza Virtual Reality Online Walkthrough</h3>
-      <br>
-        <iframe width='560' height='315' src='https://my.matterport.com/show/?m=U1uQr7mE3zk' frameborder='0' allowfullscreen allow='xr-spatial-tracking'></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/fEYLK4Rs64Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <img align="right" src="https://www.connorjbryant.com/wp-content/uploads/2022/11/VR-project.png" alt="">
-
-        <p><b>Company:</b> <b><u style="color: #EB6440"><a style="color: #EB6440" href="https://hopetrainingacademy.org/tln-interactive-education-center-1/">Hope Training Academy</a></u></b></p>
-        <p><b>Project:</b> An <b><u style="color: #EB6440"><a style="color: #EB6440" href="https://hopetrainingacademy.org/vrtour/">online virtual reality walkthrough</a></u></b> of Hope Training Academy's Center for E Sports.</p>
-        <p><b>Skills I Used:</b></p>
-        <ul>
+    <!-- Video Game Palooza Project -->
+    <article class="project fade-in">
+        <div class="project-header">
+            <h2>Video Game Palooza Virtual Reality Online Walkthrough</h2>
+            <img src="https://www.connorjbryant.com/wp-content/uploads/2022/11/VR-project.png" alt="VR Project">
+        </div>
+        
+        <div class="project-media">
+            <iframe src='https://my.matterport.com/show/?m=U1uQr7mE3zk' allowfullscreen allow='xr-spatial-tracking'></iframe>
+            <iframe src="https://www.youtube.com/embed/fEYLK4Rs64Y" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <p><strong>Company:</strong> <a href="https://hopetrainingacademy.org/tln-interactive-education-center-1/">Hope Training Academy</a></p>
+        <p><strong>Project:</strong> An <a href="https://hopetrainingacademy.org/vrtour/">online virtual reality walkthrough</a> of Hope Training Academy's Center for E Sports.</p>
+        
+        <p><strong>Skills I Used:</strong></p>
+        <ul class="skills-list">
             <li>3D Scanning</li>
             <li>360° Image Capture</li>
             <li>Matterport Development</li>
             <li>Website Design/Development</li>
         </ul>
-</div>
-</div>
 
-<div class="col-12">
-  <p style="color: black; font-size:20px; text-align: left;">The purpose of this project was to create an online VR walkthrough of <b><u style="color: #EB6440"><a style="color: #EB6440" href="https://hopetrainingacademy.org/tln-interactive-education-center-1/">Hope Training Academy's</a></u></b> E Sports Center. By showcasing this state-of-the-art facility in an immersive way potential participants can understand the experience being offered.</p>
-</div>
-<div class="col-6">
-    <p style="color: black; font-size:20px;">Website Mock-up</p>
-    <img src="https://www.connorjbryant.com/wp-content/uploads/2021/04/urn_aaid_sc_US_6fca5579-28ca-48f2-a500-f21d30250611.png" alt="website mockup">
-    <p style="color: black; font-size:20px;"><b>Initial Concept:</b> The goal of this project was to attract more people to Hope Training Academy’s Center for E Sports through an online virtual reality walkthrough of their facility.</p>
-    <p style="color: black; font-size:20px;"><b>Technology Used:</b> To complete this project my team and I used Matterport’s equipment and software. Matterport is a 3D platform that allows a physical space to be turned into an accurate and immersive digital twin. Specifically, we used the Matterport Pro2 3D Camera and an iPad with the Matterport app for this project.</p>
-    <p style="color: black; font-size:20px;"><b>Content Within The Scan:</b> There are Mattertags within the scan, which are points of interests within the digital twin that the user can interact with. We included text descriptions, videos, images, and links within the Mattertags to keep people engaged on the site. Information on all of their arcade machines, the equipment used, services offered, and the decor in the facility is in the scan.</p>
-</div>
+        <p>The purpose of this project was to create an online VR walkthrough of <a href="https://hopetrainingacademy.org/tln-interactive-education-center-1/">Hope Training Academy's</a> E Sports Center. By showcasing this state-of-the-art facility in an immersive way potential participants can understand the experience being offered.</p>
 
-<div class="col-6">
-    <p style="color: black; font-size:20px;">Completed Webpages</p>
-    <img src="https://www.connorjbryant.com/wp-content/uploads/2021/04/ezgif.com-gif-maker-1.gif" width="800" alt="completed webpages">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p style="color: black; font-size:20px;"><b>How It Works:</b> We completed the project by capturing a 3D scan of a spot and then getting a 360 degree panoramic image of that area. We were cognizant of where we were in relation to the camera at all times because getting in its path creates an unusable scan. Every six feet we moved the camera and re-leveled it if necessary. The circles on the floor represent where you can travel in the walkthrough, and this is also where we moved the camera within the building. Matterport does a lot of the work for you; the camera communicates with the app and it pieces together the scans and images of each spot into one complete 3D model.</p>
-</div>
-</div>
+        <div class="project-content">
+            <div class="project-column">
+                <h3>Website Mock-up</h3>
+                <div class="project-media">
+                    <img src="https://www.connorjbryant.com/wp-content/uploads/2021/04/urn_aaid_sc_US_6fca5579-28ca-48f2-a500-f21d30250611.png" alt="Website Mockup">
+                </div>
+                
+                <p><strong>Initial Concept:</strong> The goal of this project was to attract more people to Hope Training Academy's Center for E Sports through an online virtual reality walkthrough of their facility.</p>
+                <p><strong>Technology Used:</strong> To complete this project my team and I used Matterport's equipment and software. Matterport is a 3D platform that allows a physical space to be turned into an accurate and immersive digital twin. Specifically, we used the Matterport Pro2 3D Camera and an iPad with the Matterport app for this project.</p>
+                <p><strong>Content Within The Scan:</strong> There are Mattertags within the scan, which are points of interests within the digital twin that the user can interact with. We included text descriptions, videos, images, and links within the Mattertags to keep people engaged on the site. Information on all of their arcade machines, the equipment used, services offered, and the decor in the facility is in the scan.</p>
+            </div>
 
-<div class="row">
-    <!-- Other Website -->
-    <div style="background-color: #D6E4E5" class="col-12">
-        <h2 style="color: black; text-align: left;">Game Design and Development Portfolio Website</h3>
-          <img align="right" src="https://www.connorjbryant.com/wp-content/uploads/2022/11/gaming-site-2-2.png" width="385" alt="">
-        <p style="color: black; font-size:20px; text-align: left;">I have an interest in video game development and created a portfolio website that showcases the games I have created.</p>
-        <p><b>Project: </b><b><u style="color: #EB6440"><a style="color: #EB6440" href="https://www.connorjbryant.com/">Gaming Portfolio</a></u></b> Website</p>
-        <p><b>Skills I Used:</b></p>
-        <ul>
+            <div class="project-column">
+                <h3>Completed Webpages</h3>
+                <div class="project-media">
+                    <img src="https://www.connorjbryant.com/wp-content/uploads/2021/04/ezgif.com-gif-maker-1.gif" alt="Completed Webpages GIF">
+                </div>
+                
+                <p><strong>How It Works:</strong> We completed the project by capturing a 3D scan of a spot and then getting a 360 degree panoramic image of that area. We were cognizant of where we were in relation to the camera at all times because getting in its path creates an unusable scan. Every six feet we moved the camera and re-leveled it if necessary. The circles on the floor represent where you can travel in the walkthrough, and this is also where we moved the camera within the building. Matterport does a lot of the work for you; the camera communicates with the app and it pieces together the scans and images of each spot into one complete 3D model.</p>
+            </div>
+        </div>
+    </article>
+
+    <!-- Game Design Portfolio Project -->
+    <article class="project fade-in">
+        <div class="project-header">
+            <h2>Game Design and Development Portfolio Website</h2>
+            <img src="https://www.connorjbryant.com/wp-content/uploads/2022/11/gaming-site-2-2.png" alt="Gaming Portfolio">
+        </div>
+        
+        <p>I have an interest in video game development and created a portfolio website that showcases the games I have created.</p>
+        <p><strong>Project:</strong> <a href="https://www.connorjbryant.com/">Gaming Portfolio</a> Website</p>
+        
+        <p><strong>Skills I Used:</strong></p>
+        <ul class="skills-list">
             <li>Website Design/Development</li>
             <li>Front and Back-end Coding</li>
             <li>Content Management Tools: WordPress</li>
         </ul>
-    </div>
-    </div>
-
-    <div class="col-12">
-        
-    </div>
-</div>
+    </article>
 </div>
 
 <footer>
-  <p align="center">Website developed by Connor Bryant. Click <u style="color: #EB6440"><a style="color: #EB6440" href="https://github.com/connorjbryant/connorjbryant.github.io/blob/main/index.html">here</a></u> to view the code behind it.</p>
+    <p class="footer-text">Website developed by Connor Bryant. Click <a href="https://github.com/connorjbryant/connorjbryant.github.io/blob/main/index.html">here</a> to view the code behind it.</p>
 </footer>
 
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 </body>
 </html>
-
-
